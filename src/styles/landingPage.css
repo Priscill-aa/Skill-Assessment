@@ -1,0 +1,434 @@
+* {
+  margin: 0  ;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #111;
+  line-height: 1.6;
+}
+
+.navbar2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00b894;
+}
+
+.nav-buttons .btn {
+  margin-left: 10px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn.primary {
+  background-color: #0D80F2;
+;
+  color: white;
+  border: none;
+}
+
+.btn.primary:hover {
+  background-color:#046cd3;
+;
+}
+
+.btn.secondary {
+  background-color: #f1f1f1;
+  color: #111;
+  border: 1px solid #ccc;
+}
+
+.btn.secondary:hover {
+  background-color: #ddd;
+}
+
+.landing-page {
+  height: 75vh;
+  width: 80%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  position: relative;
+  border-radius: 10px;
+  color: white;
+  margin: 50px auto 60px ; /* This centers it horizontally */
+}
+
+
+.overlay {
+  width: 65%;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.overlay h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 30px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .overlay {
+    padding: 2rem 1.5rem;
+  }
+
+  .overlay h1 {
+    font-size: 2.2rem;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 1.5rem 1rem;
+  }
+
+  .overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .overlay p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .navbar {
+    padding: 10px 20px;
+  }
+}
+
+.features {
+    padding:  0 12rem;
+
+}
+
+.features h2{
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 60px;
+    letter-spacing: -2px;
+}
+
+.features .paragraph{
+   font-size: 15px;
+   font-weight: 400;
+   margin-bottom: 40px;
+   width:40rem;
+
+}
+
+.feature-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.feature-grid .card {
+  width: 30%; 
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #00000080;
+  border-radius: 10px;
+  padding: 1.2rem;
+
+  transition: transform 0.3s ease;
+  height: 178px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.feature-grid .card h3{
+    font-size: 16px;
+    font: bold;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #000000;
+
+}
+
+
+.feature-grid .card p {
+   font-weight: 400;
+   font-size: 14px;
+   opacity: 50%;
+   color: #000000;
+   line-height: 15px;
+}
+
+
+.Recruiters-section {
+  padding: 4rem 11rem ;
+  margin-top: 7rem;
+  background: linear-gradient(90deg, rgba(149, 228, 254, 0.6) 0%, rgba(149, 221, 254, 0.6) 6.25%, rgba(148, 214, 254, 0.6) 12.5%, rgba(148, 208, 254, 0.6) 18.75%, rgba(147, 201, 254, 0.6) 25%, rgba(147, 194, 254, 0.6) 31.25%, rgba(146, 187, 254, 0.6) 37.5%, rgba(146, 180, 254, 0.6) 43.75%, rgba(145, 174, 255, 0.6) 50%, rgba(145, 167, 255, 0.6) 56.25%, rgba(144, 160, 255, 0.6) 62.5%, rgba(144, 153, 255, 0.6) 68.75%, rgba(143, 146, 255, 0.6) 75%, rgba(143, 139, 255, 0.6) 81.25%, rgba(142, 133, 255, 0.6) 87.5%, rgba(142, 126, 255, 0.6) 93.75%, rgba(141, 119, 255, 0.6) 100%);
+  height: 590px;
+  opacity: 1;
+  top: 1201px;
+
+  color: #000000;;
+}
+
+.Recruiters-content h2 {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 60px;
+    letter-spacing: -2px;
+    color: #000000;
+
+}
+
+.Recruiters-content p {
+  max-width: 700px;
+  font-size: 16px;
+  color: #0D141C;
+  margin-bottom: 2.5rem;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: nowrap; 
+  gap: 9rem;
+  overflow-x: auto; 
+}
+
+.card2 h3 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0px;
+
+}
+
+.card2 p {
+    opacity: 65%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    width: 247px;
+}
+
+.card2 img {
+    width: 100% ;
+    height: 203px;
+    border-radius: 10px;
+    border: 1px ;
+}
+
+.Final{
+    margin-top: 5rem;
+}
+
+.Final .Ending {
+  width: 100%;
+  text-align: center;
+}
+
+
+.Final .Ending h1 {
+  font-weight: 900;  
+  font-size: 36px;
+  line-height: 60px;
+  letter-spacing: -2px;
+  font: Inter;
+}
+
+.Final .Ending p{
+    font: Inter;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #0D141C;
+    font-weight: 400;
+    padding:20px;
+
+}
+
+.Final .Ending .btn{
+  width: 194px;
+  height: 60px;
+  border: none;
+  border-radius:5px;
+  background:#0D80F2;
+  color: #fff;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0%;
+  line-height: 100%;
+  font-family: merriweather;
+}
+
+
+.Users{
+    margin-left: 10rem;
+}
+
+.Users .heading{
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font:bold;
+    padding: 40px 0;
+}
+
+.Users .User{
+    display: flex;
+    gap:10rem;
+    margin-bottom: 8rem;
+}
+
+.Users .User h3{
+    font-size:16px;
+    font-weight:500 ;
+    letter-spacing: 0px;
+    font-style: Medium;
+    font:Inter; 
+    width:370px;
+    padding: 0.7rem 0;
+}
+
+.Users .User img {
+    width:400px;
+}
+
+.Users .User p {
+   opacity: 50%;
+   font: Inter;
+   font-style: Regular;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: 0px;
+}
+
+.footer{
+    display: flex;
+
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+   margin-left: 10rem;
+  gap: 22rem;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #0D80F2;
+  font: Inria sans;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 24px;
+  display: inline-block;
+  text-align: center;
+  font-style: regular;
+}
+
+.footer li {
+  list-style: none;
+  padding-bottom: 5rem;
+}
+
+footer p{
+     color: #0D80F2;
+     line-height: 24px;
+     letter-spacing: 0px;
+     font-weight: 400;  
+     font-style: regular;
+     font: Inria Sans;  
+     font-size: 20px;
+     width: 100%;
+     text-align: center;   
+     margin-bottom: 5rem;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,160 @@
+nav1.navbar1 {
+
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav1-left {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav1-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav1-links li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+}
+
+.nav1-buttons button {
+  margin-left: 10px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+
+.get-started {
+  background-color: #4da3ff;
+  color: white;
+}
+
+.log-in {
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 60px);
+}
+
+.left-panel {
+  width: 50%;
+  background: white;
+  padding: 100px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-panel h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  align-items: right;
+  justify-content: center;
+}
+
+form input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: none;
+  background-color: #E8EDF5;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+.signup-label {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 10px 0 6px;
+}
+
+.role-selection {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 25px;
+  padding: 1px;
+}
+
+.role-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background-color: #f1f5fb;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.role-btn.selected {
+  background-color: #4da3ff;
+  color: white;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background-color:#49A0F5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.or-text {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+.right-panel {
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 40%;
+  left: 15%;
+  color: white;
+}
+
+.overlay-text h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.overlay-text p {
+  font-size: 18px;
+}
+
+.signIn {
+  display: flex;
+  font-size:16px ;
+  align-items: center;
+  gap: 7px;
+   
+}
+
+.signIn p{
+  margin-bottom: 0;
+}

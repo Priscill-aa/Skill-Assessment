@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: Arial, sans-serif;
+  height: 100%;
+
+}
+
+.navbar3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00539C;
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav3-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav3-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.search-box {
+  display: flex;
+  gap: 5px;
+}
+
+.search-box input {
+  padding: 5px;
+}
+
+.search-box button {
+  background-color: white;
+  color: #00539C;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+
+.container {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.left-panel {
+  flex: 1;
+  padding: 50px;
+  background-color: white;
+}
+
+.left-panel h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.left-panel p {
+  margin-bottom: 30px;
+}
+
+.left-panel .Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-panel label {
+  margin: 10px 0 5px;
+}
+
+.left-panel input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+}
+
+.left-panel button {
+  padding: 10px;
+  background-color: #00539C;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.right-panel {
+  flex: 1;
+  background-color: #E1ECF7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-panel img {
+  width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.signup{
+    font-weight: 500;
+    color: #2980ff;
+    font-size: 16px;
+    padding: auto 2rem;
+
+}
+.signup Link{
+  padding: 2rem;
+  font-size: 16px;
+   color: #2980ff;
+}
