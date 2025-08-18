@@ -6,108 +6,76 @@
 
 body, html {
   font-family: Arial, sans-serif;
-  height: 100%;
+  
 
 }
 
-.navbar3 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #00539C;
-  color: white;
-  padding: 10px 20px;
+
+.Logincontainer {
+display: flex;
+width:100%;
+height: 100vh;
+align-items: center;
+justify-content:center;
+
+
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.nav3-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav3-links a {
-  color: white;
-  text-decoration: none;
-}
-
-.search-box {
-  display: flex;
-  gap: 5px;
-}
-
-.search-box input {
-  padding: 5px;
-}
-
-.search-box button {
-  background-color: white;
-  color: #00539C;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-
-.container {
-  display: flex;
-  height: calc(100vh - 60px);
-}
-
-.left-panel {
-  flex: 1;
+.Logincontainer .left-panel {
+ width: 500px;
   padding: 50px;
-  background-color: white;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
 }
 
-.left-panel h1 {
+.Logincontainer .left-panel h1 {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-.left-panel p {
+.Logincontainer .left-panel p {
   margin-bottom: 30px;
 }
 
-.left-panel .Form {
+.Logincontainer .left-panel .Form {
   display: flex;
   flex-direction: column;
 }
 
-.left-panel label {
+.Logincontainer .left-panel label {
   margin: 10px 0 5px;
 }
 
-.left-panel input {
+.Logincontainer .left-panel .Form input {
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
+  border-radius: 6px;
+
 }
 
-.left-panel button {
+.Logincontainer .left-panel button {
   padding: 10px;
-  background-color: #00539C;
+  margin-bottom: 20px;
+  background-color: #49A0F5;
+  border-radius: 5px;
   color: white;
   border: none;
   cursor: pointer;
 }
 
-.right-panel {
+.Logincontainer .right-panel {
   flex: 1;
-  background-color: #E1ECF7;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.right-panel img {
+.Logincontainer .right-panel img {
   width: 90%;
-  max-height: 90%;
-  object-fit: contain;
+ height: 100%;
 }
 
 .signup{

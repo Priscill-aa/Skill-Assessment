@@ -92,7 +92,7 @@ body {
   position: relative;
   border-radius: 10px;
   color: white;
-  margin: 50px auto 60px ; /* This centers it horizontally */
+  margin: 50px auto 60px ;
 }
 
 
@@ -176,6 +176,7 @@ body {
     margin-bottom: 20px;
     line-height: 60px;
     letter-spacing: -2px;
+  
 }
 
 .features .paragraph{
@@ -283,13 +284,13 @@ body {
 
 .card2 img {
     width: 100% ;
-    height: 203px;
+    /* height: 203px; */
     border-radius: 10px;
     border: 1px ;
 }
 
 .Final{
-    margin-top: 5rem;
+    margin-top: 5rem;`
 }
 
 .Final .Ending {
@@ -313,7 +314,7 @@ body {
     letter-spacing: 0px;
     color: #0D141C;
     font-weight: 400;
-    padding:20px;
+    padding-bottom: 1rem;
 
 }
 
@@ -333,7 +334,9 @@ body {
 
 
 .Users{
-    margin-left: 10rem;
+ 
+ justify-items: left;
+ margin-left: 3rem;
 }
 
 .Users .heading{
@@ -347,7 +350,7 @@ body {
 
 .Users .User{
     display: flex;
-    gap:10rem;
+    gap:5rem;
     margin-bottom: 8rem;
 }
 
@@ -372,18 +375,22 @@ body {
    font-weight: 400;
    line-height: 24px;
    letter-spacing: 0px;
+   align-items: center;
 }
 
 .footer{
     display: flex;
+    max-width: 1200px;
+    margin: auto;
 
 }
 
 footer ul {
   list-style: none;
   display: flex;
-   margin-left: 10rem;
-  gap: 22rem;
+   /* margin-left: 10rem; */
+  /* gap: 22rem; */
+  justify-content: space-between;
 }
 
 footer ul li a {

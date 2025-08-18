@@ -1,0 +1,163 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  color: #1a1a1a;
+}
+
+.navbar {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navbar .profile-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.heading h2 {
+  margin-bottom: 0.2rem;
+}
+
+.summary-cards {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background-color: #1f2c3f;
+  color: white;
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
+  flex: 1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.skills-breakdown {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  gap: 2rem;
+}
+
+.skills-column {
+  flex: 1;
+}
+
+.skills-column h4 {
+  margin-bottom: 1rem;
+}
+
+.skills-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-column li {
+  margin-bottom: 0.7rem;
+}
+
+.skills-column label {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.bar {
+  height: 8px;
+  background-color: #2a3b52;
+  border-radius: 4px;
+}
+
+.short { width: 20%; }
+.medium { width: 50%; }
+.long { width: 90%; }
+
+.trend.up {
+  color: green;
+  margin-left: 5px;
+}
+
+.detailed-performance table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.detailed-performance th,
+.detailed-performance td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.badge.excellent { background-color: #3fc06f; }
+.badge.average { background-color: #f4c430; }
+.badge.good { background-color: #f9a825; }
+
+.recommendations {
+  background-color: #e6f3ff;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+}
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background-color: #0f62fe;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: #e0e0e0;
+  color: black;
+}

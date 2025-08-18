@@ -66,7 +66,7 @@ const data = await response.json();
 
   return (
   <div>
-  <div className="container">
+  <div className="Signupcontainer">
   <div className="left-panel">
  <h2>Join Skill Checker</h2>
   <form onSubmit={handleSubmit}>
@@ -74,7 +74,7 @@ const data = await response.json();
   <input name="first_name" type="text" placeholder="First name" value={formData.first_name} onChange={handleChange} required />
   <input name="last_name" type="text" placeholder="Last name" value={formData.last_name} onChange={handleChange} required />
   <input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-   <input name="password" type="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+  <input name="password" type="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
   <input name="confirm_password" type="password" placeholder="Confirm Password" value={formData.confirm_password} onChange={handleChange} required />
 
             
@@ -89,13 +89,7 @@ const data = await response.json();
  </div>
  </div>
 
-<div className="right-panel">
- <img src={Laptop} alt="Laptop" />
- <div className="overlay-text">
- <h2>Join Skill Checker</h2>
-<p>Let's get you set up in minutes.</p>
- </div>
- </div>
+
 </div>
  </div>
   );

@@ -13,6 +13,7 @@
 .logo {
   font-weight: bold;
   font-size: 18px;
+  padding-right: 10px;
 }
 
 .nav a {
@@ -29,17 +30,18 @@
 }
 
 .search-input {
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 8px 14px;  border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 14px;
   width: 200px;
+  
 }
 
 
  
 .search-box {
   background-color: #eef3fb;
+  border-radius: 50px;
   color: #2980ff;
   border: none;
   padding: 8px 14px;
