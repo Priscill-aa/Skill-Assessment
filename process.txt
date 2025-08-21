@@ -1,0 +1,10 @@
+
+
+
+1. prompt gpt for dummy data, should follow the exact structure of the backend
+2. create a new folder called data, create a file
+called index.js, and put the dummy data inside
+3. import the data inside the assessment
+4. use the id you already have in the assessment to get the course data from the 
+dummy data
+5.console log the information

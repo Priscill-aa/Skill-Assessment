@@ -8,6 +8,7 @@ import Homepage from '../Pages/homePage'
 import { UseAuth } from '../context/usercontextprovider'
 import ResetPassword from '../Pages/resetPassword'
 import NewPassword from '../Pages/newPassword'
+import Assessment from '../Pages/assessment'
 
 
 
@@ -24,7 +25,8 @@ const {isAuthenticated} = UseAuth()
       <Route path="/homePage" element={<Homepage />} />  
       <Route path="/resetPassword"  element={<ResetPassword />} />
       <Route path="/newPassword" element={<NewPassword />} />
-      
+      <Route path="/assessment/:id/:title"   element={<Assessment />} />
+     
     </Routes>
     </div>
   )

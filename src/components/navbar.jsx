@@ -1,22 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/navbar.css'
 import { Bell, Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { UseAuth } from '../context/usercontextprovider'
-function navbar() {
+
+function Navbar() {
   const { isAuthenticated } = UseAuth()
-
-
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div> <header className="header">
+    <header className="header">
       <div className="logo">Skill Checker</div>
-      <nav className="nav">
-        <Link to={'/'} >Home</Link>
-        < Link to={'/assessment'} >Assessments</Link>
-        <Link to={'/skills'}>My Skills</Link>
-        <Link to={'/team'}>My Team</Link>
+
+      {/* Hamburger toggle  for mobile view*/}
+      <div
+        className={`menu-toggle ${isOpen ? 'open' : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {/* Nav links */}
+      <nav className={`nav ${isOpen ? 'active' : ''}`}>
+        <Link to={'/'} onClick={() => setIsOpen(false)}>Home</Link>
+        <Link to={'/assessment'} onClick={() => setIsOpen(false)}>Assessments</Link>
+        <Link to={'/skills'} onClick={() => setIsOpen(false)}>My Skills</Link>
+        <Link to={'/team'} onClick={() => setIsOpen(false)}>My Team</Link>
       </nav>
+
+
+
+      {/* Right section */}
       <div className="header-right">
         {isAuthenticated ? (
           <>
@@ -30,12 +46,16 @@ function navbar() {
             <div className="profile-avatar"></div>
           </>
         ) : (
-          <Link to={'/login'} className='LogIn_btn'>Log In</Link>
+          <Link to={'/login'} className="LogIn_btn">
+            <button className='LogInbtn'>
+            Log In
+            </button>
+            </Link>
+            
         )}
       </div>
     </header>
-    </div>
   )
 }
 
-export default navbar
+export default Navbar

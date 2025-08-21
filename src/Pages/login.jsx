@@ -24,7 +24,7 @@ function Login() {
       if (response) {
         toast.success(response.data.message);
         setTimeout(()=> {
-          location.reload()
+         navigate('/onboarding');
 
         },2000)
       }
