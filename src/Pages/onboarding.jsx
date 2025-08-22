@@ -9,6 +9,8 @@ import { toast } from 'react-toastify';
 import Navbar from '../components/navbar';
 
 
+
+
 const Onboarding = () => {
   const { skills, gettingSkills } = UseAuth()
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -35,6 +37,7 @@ const Onboarding = () => {
   }
 
   console.log(skills)
+  
 
 
 
@@ -54,6 +57,7 @@ const Onboarding = () => {
             return <OnboardingCard key={skill.id} {...skill} selectedSkills={selectedSkills} setSelectedSkills={setSelectedSkills} />
           })}
         </div>
+      
 
         <div className="next-button-container">
           <button onClick={handleOnboarding} id="next-btn">

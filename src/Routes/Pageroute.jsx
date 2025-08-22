@@ -26,6 +26,8 @@ const {isAuthenticated} = UseAuth()
       <Route path="/resetPassword"  element={<ResetPassword />} />
       <Route path="/newPassword" element={<NewPassword />} />
       <Route path="/assessment/:id/:title"   element={<Assessment />} />
+ 
+
      
     </Routes>
     </div>

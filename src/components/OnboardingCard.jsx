@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const OnboardingCard = ({ name, id, setSelectedSkills, selectedSkills }) => {
-
-  const isSelected = selectedSkills.includes(name); // check if name is in the array
+  const isSelected = selectedSkills.includes(name);
 
   const addSkill = () => {
     if (!selectedSkills.includes(name)) {
@@ -11,8 +10,11 @@ export const OnboardingCard = ({ name, id, setSelectedSkills, selectedSkills }) 
     }
   };
 
+  
+  const encodedName = encodeURIComponent(name);
+
   return (
-    <Link to={`/assessment/${id}/${name}`} className="skill-link">
+    <Link to={`/assessment/${id}/${encodedName}`} className="skill-link">
       <div
         className={`skill-card ${isSelected ? 'selected' : ''}`}
         onClick={addSkill}
@@ -23,3 +25,5 @@ export const OnboardingCard = ({ name, id, setSelectedSkills, selectedSkills }) 
     </Link>
   );
 };
+
+export default OnboardingCard;
