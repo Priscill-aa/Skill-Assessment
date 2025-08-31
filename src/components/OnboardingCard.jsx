@@ -11,10 +11,10 @@ export const OnboardingCard = ({ name, id, setSelectedSkills, selectedSkills }) 
   };
 
   
-  const encodedName = encodeURIComponent(name);
+  // const encodedName = encodeURIComponent(name);
 
   return (
-    <Link to={`/assessment/${id}/${encodedName}`} className="skill-link">
+    <div className="skill-link">
       <div
         className={`skill-card ${isSelected ? 'selected' : ''}`}
         onClick={addSkill}
@@ -22,7 +22,7 @@ export const OnboardingCard = ({ name, id, setSelectedSkills, selectedSkills }) 
         <span className="material-icons">code</span>
         <span className="skill-name">{name.replace('-', ' ')}</span>
       </div>
-    </Link>
+    </div>
   );
 };
 

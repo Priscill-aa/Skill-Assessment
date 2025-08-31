@@ -1,10 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import Refresh, { Getskills, GetuserQuiz, GetuserQuizResult, Getuserskills,Getprofile } from "../Services/Api";
+import { Getskills, GetuserQuiz, GetuserQuizResult, Getuserskills,Getprofile } from "../Services/Api";
+import axiosClient from "../Utils/axiosClient";
 
 const Usercontext = createContext ()
 
 function Usercontextprovider({children}) {
-    const url = import.meta.env.VITE_BACKEND_URL;
+   
 
     const [skills, setskills] = useState([])
     const [Userskills, setUserskills] = useState([])
@@ -20,19 +21,16 @@ function Usercontextprovider({children}) {
         const get_auth = async () => {
         setgettingAuth(true)
         try {
-            const response = await fetch(`${url}/get_authentication/`, {
-                method: "GET",
-                credentials: "include"
-            });
+            const response = await axiosClient.get(`/get_authentication/`)
 
-            if(response.ok) {
-                const data= await response.json()
+            if(response) {
+                const data= await response.data
                 setIsauthenticated(data.data.auth)
             }
-            if (response.status === 401) {
-                console.warn("Unauthorized — refreshing token...");
-                await Refresh();
-            }
+            // if (response.status === 401) {
+            //     console.warn("Unauthorized — refreshing token...");
+            //     await Refresh();
+            // }
         } catch (error) {
             console.error("Auth check failed:", error);
         } finally {
@@ -41,7 +39,7 @@ function Usercontextprovider({children}) {
         };
 
         get_auth();
-    }, [url]);
+    }, []);
 
 
     useEffect(()=> {
@@ -66,7 +64,7 @@ function Usercontextprovider({children}) {
                 setUserskills(response.data)
             }
 
-            console.log(isAuthenticated)
+            
             isAuthenticated && get_user_skills()
         
         } catch (error) {
@@ -140,20 +138,18 @@ function Usercontextprovider({children}) {
 
 
     return (
-        <Usercontext value={{
-            skills, 
-            Userskills, 
-            isAuthenticated,
-            gettingAuth,
-            gettingUserquiz,
-            userQuizResult,
-            userProfile,
+<Usercontext.Provider value={{
+    skills, 
+    Userskills, 
+    isAuthenticated,
+    gettingAuth,
+    gettingUserquiz,
+    userQuizResult,
+    userProfile,
+}}>
+    {children}
+</Usercontext.Provider>
 
-
-        }}
-        >
-            {children} 
-        </Usercontext>
     ) 
 }
 

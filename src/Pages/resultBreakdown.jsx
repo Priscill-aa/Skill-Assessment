@@ -1,123 +1,102 @@
-import React from 'react';
-import './resultBreakdown.css';
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/resultBreakdown.css";
 
-const resultBreakdown = () => {
+const ResultBreakdown = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const data = location.state;
+
+  if (!data) {
+    return (
+      <div>
+        <h2>No result data found</h2>
+        <button onClick={() => navigate("/")}>Go Home</button>
+      </div>
+    );
+  }
+
+  const { score, total, wrong_answers } = data;
+  const percentage = Math.round((score / total) * 100);
+
+  // Feedback message
+  let feedback = "";
+  if (percentage >= 80) {
+    feedback = "Excellent work! 🎉 You really nailed this assessment.";
+  } else if (percentage >= 60) {
+    feedback = "Good job 👍. A little more practice and you’ll ace it.";
+  } else {
+    feedback = "Keep going 💪. Review the wrong answers to improve.";
+  }
+
   return (
-<div>
- <header className="navbar">
-<div className="logo">Skill Checker</div>
-<nav>
- <ul>
-  <li>Dashboard</li>
-  <li>Assessments</li>
-  <li>Reports</li>
-  <li>About</li>
-  <li className="profile-icon"></li>
-</ul>
-</nav>
-</header>
+    <div>
+      <header className="navbar">
+        <div className="logo">Skill Checker</div>
+        <nav>
+          <ul>
+            <li onClick={() => navigate("/")}>Dashboard</li>
+            <li>Assessments</li>
+            <li>Reports</li>
+            <li>About</li>
+            <li className="profile-icon"></li>
+          </ul>
+        </nav>
+      </header>
 
-<main className="container">
- <section className="heading">
-  <h2>Assessment Results</h2>
-    <p>Review your performance and insights from the recent assessment.</p>
- </section>
+      <main className="container">
+        <section className="heading">
+          <h2>Assessment Results</h2>
+          <p>{feedback}</p>
+        </section>
 
- <section className="summary-cards">
-    <div className="card"><h3>Total Score</h3><p>75/100</p></div>
-    <div className="card"><h3>Completion Time</h3><p>50 min</p></div>
-    <div className="card"><h3>Accuracy</h3><p>80%</p></div>
-</section>
+        <section className="summary-cards">
+          <div className="card">
+            <h3>Total Score</h3>
+            <p>
+              {score}/{total}
+            </p>
+          </div>
+          <div className="card">
+            <h3>Accuracy</h3>
+            <p>{percentage}%</p>
+          </div>
+          <div className="card">
+            <h3>Questions Wrong</h3>
+            <p>{wrong_answers.length}</p>
+          </div>
+        </section>
 
- <section className="skills-breakdown">
-    <div className="skills-column">
-         <h4>
-         Technical Skills <span>70%</span>{' '}
-            <small className="trend up">+5%</small>
-         </h4>
- <ul>
-    <li><label>Problem Solving</label><div className="bar short"></div></li>
-    <li><label>Coding Proficiency</label><div className="bar short"></div></li>
-    <li><label>Data Analysis</label><div className="bar medium"></div></li>
-   <li><label>System Design</label><div className="bar long"></div></li>
- </ul>
+        <section className="detailed-performance">
+          <h3>Wrong Answers</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Question ID</th>
+                <th>Your Answer</th>
+                <th>Correct Answer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {wrong_answers.map((w, idx) => (
+                <tr key={idx}>
+                  <td>{w.question_id}</td>
+                  <td>{w.selected_option}</td>
+                  <td>{w.correct_option}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        <section className="actions">
+          <button className="btn primary" onClick={() => navigate("/")}>
+            Back to Dashboard
+          </button>
+        </section>
+      </main>
     </div>
-
-<div className="skills-column">
-    <h4>
-    Soft Skills <span>65%</span>{' '}
-       <small className="trend up">+3%</small>
-    </h4>
-
- <ul>
-     <li><label>Communication</label><div className="bar long"></div></li>
-     <li><label>Teamwork</label><div className="bar short"></div></li>
-     <li><label>Leadership</label><div className="bar long"></div></li>
-     <li><label>Time Management</label><div className="bar medium"></div></li>
- </ul>
-
- </div>
- </section>
-
-<section className="detailed-performance">
-    <table>
-      <thead>
-        <tr>
-          <th>Skill</th>
-          <th>Score</th>
-          <th>Performance Level</th>
-          <th>Details</th>
-        </tr>
-     </thead>
-    
-    <tbody>
-     <tr>
-        <td>Problem Solving</td>
-        <td>80/100</td>
-        <td><span className="badge excellent">Excellent</span></td>
-         <td></td>
-    </tr>
-
-     <tr>
-        <td>Coding Proficiency</td>
-        <td>70/100</td>
-        <td><span className="badge average">Average</span></td>
-        <td></td>
-     </tr>
-     
-     <tr>
-        <td>Communication</td>
-        <td>90/100</td>
-        <td><span className="badge excellent">Excellent</span></td>
-        <td></td>
-    </tr>
-
-     <tr>
-        <td>Teamwork</td>
-        <td>85/100</td>
-        <td><span className="badge good">Good</span></td>
-        <td></td>
-    </tr>
-    </tbody>
-    </table>
-    </section>
-
-    <section className="recommendations">
-       <p>
-       Based on your performance, we recommend focusing on improving your
-       teamwork skills. Consider taking courses or participating in
-       team-based projects to enhance your abilities in this area.
-      </p>
-    </section>
-
-    <section className="actions">
-        <button className="btn primary">Export Results</button>
-        <button className="btn secondary">Share Results</button>
-    </section>
-    </main>
-    </div>
- 
-);
+  );
 };
 
-export default resultBreakdown;
+export default ResultBreakdown;

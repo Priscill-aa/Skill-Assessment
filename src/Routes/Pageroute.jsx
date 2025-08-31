@@ -9,6 +9,8 @@ import { UseAuth } from '../context/usercontextprovider'
 import ResetPassword from '../Pages/resetPassword'
 import NewPassword from '../Pages/newPassword'
 import Assessment from '../Pages/assessment'
+import ResultBreakdown from '../Pages/resultBreakdown'
+import Congrats from '../Pages/congrats'
 
 
 
@@ -25,8 +27,9 @@ const {isAuthenticated} = UseAuth()
       <Route path="/homePage" element={<Homepage />} />  
       <Route path="/resetPassword"  element={<ResetPassword />} />
       <Route path="/newPassword" element={<NewPassword />} />
-      <Route path="/assessment/:id/:title"   element={<Assessment />} />
- 
+      <Route path="/assessment/:title"   element={<Assessment />} />
+      <Route path="/result"   element={<ResultBreakdown />} />
+      <Route path="/congrats" element={<Congrats />} />
 
      
     </Routes>

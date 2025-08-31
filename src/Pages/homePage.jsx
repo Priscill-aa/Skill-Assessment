@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { use } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/homePage.css";
 import { Bell, Search } from "lucide-react";
 import { UseAuth } from "../context/usercontextprovider";
@@ -9,6 +9,8 @@ import Navbar from "../components/navbar";
 function homePage() {  
   const {userQuizResult, gettingUserquiz,userProfile}=UseAuth()
 const dateJoined = moment(userProfile?.user?.user?.date_joined).fromNow();
+
+const navigate = useNavigate()
 
 if (gettingUserquiz){
   return 'Loading'
@@ -73,7 +75,7 @@ if (gettingUserquiz){
    {userQuizResult?.results?.map((result)=>{
     return(
      
-  <tr key={result.id}>
+  <tr style={{cursor:'pointer'}}  key={result.id} onClick={() => navigate(`/assessment/${encodeURIComponent(result.quiz_title)}`)}>
   <td>{result.quiz_title}</td>
   <td>
   <span style={{textTransform:'capitalize'}} className="status completed">{result.status}</span>

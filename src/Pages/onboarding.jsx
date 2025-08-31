@@ -36,7 +36,7 @@ const Onboarding = () => {
     finally { setIsloading(false) }
   }
 
-  console.log(skills)
+
   
 
 

@@ -1,37 +1,88 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/assessment.css';
-import { useParams } from 'react-router-dom';
-import { dummyQuizzes } from '../Data/Index';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Getquiz, SubmitQuiz } from '../Services/Api'; // <-- make sure SubmitQuiz is in your Api.js
+import { toast } from 'react-toastify';
 
 const Assessment = () => {
-  const { id, title } = useParams();
+  const { title } = useParams();
   const decodedTitle = decodeURIComponent(title);
+  const navigate = useNavigate();
 
-  // Find quiz by skill id
-  const quiz = dummyQuizzes.data.quizzes.find(q => q.skill.id === Number(id));
-  
-
-  
+  const [quiz, setQuiz] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const currentQuestion = quiz?.questions[currentIndex];
+  const [answers, setAnswers] = useState({}); // { questionId: selectedOption }
 
-  // if (!quiz) {
-  //   return <h2>No quiz found for {decodedTitle}</h2>;
-  // }
+  useEffect(() => {
+    if (title.trim()) {
+      const getcurrentquiz = async () => {
+        try {
+          const response = await Getquiz(title);
+          setQuiz(response.data.quiz);
+        } catch (err) {
+          console.error('Error fetching quiz:', err);
+        } finally {
+          setLoading(false);
+        }
+      };
+      getcurrentquiz();
+    }
+  }, [title]);
 
-  
-  
   const goNext = () => {
     if (currentIndex < quiz.questions.length - 1) {
-      setCurrentIndex(prev => prev + 1);
+      setCurrentIndex((prev) => prev + 1);
     }
   };
 
   const goPrev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(prev => prev - 1);
+      setCurrentIndex((prev) => prev - 1);
     }
   };
+
+  const handleOptionChange = (questionId, value) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [questionId]: value.toUpperCase(), // keep consistent with backend (A, B, C, D)
+    }));
+  };
+
+  const handleSubmit = async () => {
+    if (!quiz) return;
+
+    // Transform answers object into array format
+    const payload = {
+      quiz_id: quiz.id,
+      answers: Object.entries(answers).map(([question_id, selected_option]) => ({
+        question_id: Number(question_id),
+        selected_option,
+      })),
+    };
+
+    try {
+      const response = await SubmitQuiz(payload); // POST to /submit-quiz
+
+      if (response) {
+        toast.success(response.data.message)
+        navigate('/result', { state: response.data });
+      }
+
+    } catch (error) {
+      console.error('Submission error:', error);
+    }
+  };
+
+  if (loading) {
+    return <h2>Loading quiz...</h2>;
+  }
+
+  if (!quiz) {
+    return <h2>No quiz found for {decodedTitle}</h2>;
+  }
+
+  const currentQuestion = quiz.questions[currentIndex];
 
   return (
     <div>
@@ -50,18 +101,20 @@ const Assessment = () => {
       </header>
 
       <main className="container">
-        <button className="back-arrow">&larr;</button>
+        {/* Back Arrow -> Home */}
+        <button className="back-arrow" onClick={() => navigate('/')}>
+          &larr;
+        </button>
 
-        <h1>Assessment: {decodedTitle}</h1>
+        <h1>Assessment: {quiz.title}</h1>
         <p className="subtext">{quiz.description}</p>
 
-        
         <div className="progress-wrapper">
           <div className="progress-bar">
             <div
               className="progress-fill"
               style={{
-                width: `${((currentIndex + 1) / quiz.questions.length) * 100}%`
+                width: `${((currentIndex + 1) / quiz.questions.length) * 100}%`,
               }}
             ></div>
           </div>
@@ -70,7 +123,6 @@ const Assessment = () => {
           </p>
         </div>
 
-  
         {currentQuestion && (
           <section className="question-section">
             <h2>
@@ -78,22 +130,20 @@ const Assessment = () => {
             </h2>
 
             <form className="options">
-              <label className="option">
-                <input type="radio" name={`q-${currentQuestion.id}`} value="a" />
-                <span>{currentQuestion.option_a}</span>
-              </label>
-              <label className="option">
-                <input type="radio" name={`q-${currentQuestion.id}`} value="b" />
-                <span>{currentQuestion.option_b}</span>
-              </label>
-              <label className="option">
-                <input type="radio" name={`q-${currentQuestion.id}`} value="c" />
-                <span>{currentQuestion.option_c}</span>
-              </label>
-              <label className="option">
-                <input type="radio" name={`q-${currentQuestion.id}`} value="d" />
-                <span>{currentQuestion.option_d}</span>
-              </label>
+              {['a', 'b', 'c', 'd'].map((opt) => (
+                <label className="option" key={opt}>
+                  <input
+                    type="radio"
+                    name={`q-${currentQuestion.id}`}
+                    value={opt.toUpperCase()}
+                    checked={answers[currentQuestion.id] === opt.toUpperCase()}
+                    onChange={() =>
+                      handleOptionChange(currentQuestion.id, opt)
+                    }
+                  />
+                  <span>{currentQuestion[`option_${opt}`]}</span>
+                </label>
+              ))}
             </form>
 
             <div className="buttons">
@@ -109,7 +159,7 @@ const Assessment = () => {
                   Next
                 </button>
               ) : (
-                <button className="nav-btn submit" onClick={() => alert('Submit quiz!')}>
+                <button className="nav-btn submit" onClick={handleSubmit}>
                   Submit
                 </button>
               )}
